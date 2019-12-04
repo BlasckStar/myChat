@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8B7D14"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/txt_createName"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginRight="42dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="Username"
+        android:padding="10dp"
+        android:textColor="#2E1D1D"
+        android:textColorHint="#88635555"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_createPassword"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+    android:padding="10dp"
+    android:textColor="#2E1D1D"
+    android:textColorHint="#88635555"
+        app:layout_constraintEnd_toEndOf="@+id/txt_createName"
+        app:layout_constraintStart_toStartOf="@+id/txt_createName"
+        app:layout_constraintTop_toBottomOf="@+id/txt_createName" />
+
+    <EditText
+        android:id="@+id/txt_createEmail"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="#2E1D1D"
+        android:textColorHint="#88635555"
+        app:layout_constraintEnd_toEndOf="@+id/txt_createPassword"
+        app:layout_constraintStart_toStartOf="@+id/txt_createPassword"
+        app:layout_constraintTop_toBottomOf="@+id/txt_createPassword" />
+
+    <Button
+        android:id="@+id/btn_create"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#FAE763"
+        android:text="Create account"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/txt_createEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txt_createEmail"
+        app:layout_constraintTop_toBottomOf="@+id/txt_createEmail" />
+
+    <Button
+        android:id="@+id/btn_toLogin"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Already have an account?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_create"
+        app:layout_constraintStart_toStartOf="@+id/btn_create"
+        app:layout_constraintTop_toBottomOf="@+id/btn_create" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
