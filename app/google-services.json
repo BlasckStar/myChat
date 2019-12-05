@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "694181279224",
+    "firebase_url": "https://mychat-kotlin.firebaseio.com",
+    "project_id": "mychat-kotlin",
+    "storage_bucket": "mychat-kotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694181279224:android:e68e6347d7d42cbc0a520d",
+        "android_client_info": {
+          "package_name": "br.com.makrosystems.mychat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694181279224-fufm5b8377p41dr854m5vj8t34895run.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.makrosystems.mychat",
+            "certificate_hash": "0a63a95605b7d9662f46e2a4a757d09d26ca3185"
+          }
+        },
+        {
+          "client_id": "694181279224-0p9dsu17fbc682e0pvbg6sh117nsr7sj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCc5pRFIWp-6Wi4CyjhZlrZqKBfiqcw6lY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "694181279224-0p9dsu17fbc682e0pvbg6sh117nsr7sj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

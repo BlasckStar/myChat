@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/roundedlogin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#8B7D14"
+        android:background="@drawable/roundedlogin"
         tools:context=".MainActivity">
 
         <EditText
@@ -20,11 +21,14 @@
             android:layout_marginTop="64dp"
             android:layout_marginEnd="42dp"
             android:layout_marginRight="42dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/rounded_edittext_register"
             android:ems="10"
             android:hint="Name"
             android:inputType="textPersonName"
-            android:padding="10dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
             android:textColor="#2E1D1D"
             android:textColorHint="#88635555"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,11 +40,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/rounded_edittext_register"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
-            android:padding="10dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
             android:textColor="#2E1D1D"
             android:textColorHint="#88635555"
             app:layout_constraintEnd_toEndOf="@+id/txt_loginName"
@@ -52,7 +59,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="#FAE763"
+            android:background="@drawable/rounded_btn_register"
             android:text="Login"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="@+id/txt_loginPassword"
