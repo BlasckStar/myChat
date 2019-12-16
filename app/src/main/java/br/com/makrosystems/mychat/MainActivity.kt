@@ -1,6 +1,7 @@
 package br.com.makrosystems.mychat
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
@@ -9,9 +10,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.DialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -25,26 +30,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     lateinit var photo_use: Uri
+    var pressed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-
-
         btnListeners()
-    }
-
-    fun login(){
-        val createdView = LayoutInflater.from(this@MainActivity).inflate(R.layout.activity_login,
-            window.decorView as ViewGroup,
-            false)
-        createdView.setBackgroundColor(0)
-        AlertDialog.Builder(this@MainActivity)
-
-            .setView(createdView)
-            //.setPositiveButton("Save", object: DialogInterface.OnClickListener{ })
-            .show()
     }
 
     fun performRegister() {
@@ -56,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener {
                     if(!it.isSuccessful){
                         Toast.makeText(this, "NOPE", Toast.LENGTH_LONG).show()
+
                         return@addOnCompleteListener
                     }
                     uploadImageToFirebase()
@@ -65,6 +58,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "MAOIO", Toast.LENGTH_LONG).show()
                 }
         }catch(e: Exception){
+            pressed = false
             Toast.makeText(this, "$e", Toast.LENGTH_LONG).show()
         }
     }
@@ -82,6 +76,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 .addOnFailureListener {
+                    pressed = false
                     Toast.makeText(this, "NÃO FOI O STORAGE", Toast.LENGTH_LONG).show()
                 }
         }
@@ -95,9 +90,17 @@ class MainActivity : AppCompatActivity() {
 
         ref.setValue(user)
             .addOnSuccessListener {
+
+                //Call latestMessages
+                val intent = Intent(this, LatestMessagesActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                pressed = false
+                startActivity(intent)
+
                 Toast.makeText(this, "FOI O DATABASE", Toast.LENGTH_LONG).show()
             }
             .addOnFailureListener {
+                pressed = false
                 Toast.makeText(this, "NÃO FOI O DATABASE", Toast.LENGTH_LONG).show()
             }
     }
@@ -105,12 +108,14 @@ class MainActivity : AppCompatActivity() {
 
     fun btnListeners(){
         btn_toLogin.setOnClickListener {
-            login()
-            //startActivity(Intent(this, (LoginActivity::class.java)))
+            startActivity(Intent(this, (LoginActivity::class.java)))
         }
 
         btn_create.setOnClickListener {
-            performRegister()
+            if(!pressed){
+                pressed = true
+                performRegister()
+            }
         }
 
         btn_photoSelector.setOnClickListener {
@@ -143,3 +148,4 @@ class MainActivity : AppCompatActivity() {
 }
 
 class User(val uid: String?, val username: String, val profileId: String)
+
